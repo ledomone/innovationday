@@ -1,0 +1,8 @@
+services:
+  demo:
+    image: demoapp:dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8080:80"
+
