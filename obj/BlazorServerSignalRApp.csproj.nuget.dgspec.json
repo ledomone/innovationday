@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Tests\\inday\\blazor-samples\\7.0\\BlazorServerSignalRApp\\BlazorServerSignalRApp.csproj": {}
+    "C:\\Tests\\inday\\innovationday\\BlazorServerSignalRApp.csproj": {}
   },
   "projects": {
-    "C:\\Tests\\inday\\blazor-samples\\7.0\\BlazorServerSignalRApp\\BlazorServerSignalRApp.csproj": {
+    "C:\\Tests\\inday\\innovationday\\BlazorServerSignalRApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Tests\\inday\\blazor-samples\\7.0\\BlazorServerSignalRApp\\BlazorServerSignalRApp.csproj",
+        "projectUniqueName": "C:\\Tests\\inday\\innovationday\\BlazorServerSignalRApp.csproj",
         "projectName": "BlazorServerSignalRApp",
-        "projectPath": "C:\\Tests\\inday\\blazor-samples\\7.0\\BlazorServerSignalRApp\\BlazorServerSignalRApp.csproj",
+        "projectPath": "C:\\Tests\\inday\\innovationday\\BlazorServerSignalRApp.csproj",
         "packagesPath": "C:\\Users\\DO652LE\\.nuget\\packages\\",
-        "outputPath": "C:\\Tests\\inday\\blazor-samples\\7.0\\BlazorServerSignalRApp\\obj\\",
+        "outputPath": "C:\\Tests\\inday\\innovationday\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -46,6 +46,10 @@
             "Microsoft.AspNetCore.SignalR.Client": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.17.0, )"
             }
           },
           "imports": [

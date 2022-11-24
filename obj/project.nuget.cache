@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I5jBzcgpTSoSAyKRlIrYZm/tclhbX4tlmKTAfvCZExRZUOvo+kNF+lN9akuTicszsDWSPd5dqwy0QuWmDm0CCA==",
+  "dgSpecHash": "In74RjoTmWQu0jIXRJMuYUtK1GCjsEOjfZvXyHw2oKEvhfUqOOVyw6+m6qC4rkTZvLjJXGRN4iUOXiNlbAnseQ==",
   "success": true,
-  "projectFilePath": "C:\\Tests\\inday\\blazor-samples\\7.0\\BlazorServerSignalRApp\\BlazorServerSignalRApp.csproj",
+  "projectFilePath": "C:\\Tests\\inday\\innovationday\\BlazorServerSignalRApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DO652LE\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\7.0.0\\microsoft.aspnetcore.connections.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\DO652LE\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\7.0.0\\microsoft.aspnetcore.http.connections.client.7.0.0.nupkg.sha512",
@@ -18,6 +18,7 @@
     "C:\\Users\\DO652LE\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\DO652LE\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\DO652LE\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\DO652LE\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\DO652LE\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512",
     "C:\\Users\\DO652LE\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
   ],
