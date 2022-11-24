@@ -1,62 +1,54 @@
 @page "/"
 @using Microsoft.AspNetCore.SignalR.Client
+@using BlazorServerSignalRApp.Models
 @inject NavigationManager Navigation
 @implements IAsyncDisposable
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Parcels list</PageTitle>
+<h1>Parcels list</h1>
 
-<div class="form-group">
-    <label>
-        User:
-        <input @bind="userInput" />
-    </label>
-</div>
-<div class="form-group">
-    <label>
-        Message:
-        <input @bind="messageInput" size="50" />
-    </label>
-</div>
-<button @onclick="Send" disabled="@(!IsConnected)">Send</button>
-
-<hr>
-
-<ul id="messagesList">
-    @foreach (var message in messages)
-    {
-        <li>@message</li>
-    }
-</ul>
+@if (parcels.Any())
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ParcelNumber</th>
+            <th>Status</th>
+            <th>LastModificationDate</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var parcel in parcels)
+        {
+            <tr>
+                <td>@parcel.ParcelNumber</td>
+                <td>@parcel.Status</td>
+                <td>@parcel.LastModificationDate</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
 
 @code {
     private HubConnection? hubConnection;
-    private List<string> messages = new List<string>();
-    private string? userInput;
-    private string? messageInput;
+    private List<ParcelInfoModel> parcels = new();
 
     protected override async Task OnInitializedAsync()
     {
         hubConnection = new HubConnectionBuilder()
-            .WithUrl(Navigation.ToAbsoluteUri("/chathub"))
+            .WithUrl(Navigation.ToAbsoluteUri("/parcel-info-hub"))
             .Build();
 
-        hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+        hubConnection.On<ParcelInfoModel>("ParcelInfoUpdatedMessage", (parcel) =>
         {
-            var encodedMsg = $"{user}: {message}";
-            messages.Add(encodedMsg);
+    //var encodedMsg = $"ParcelNumber:{parcel.ParcelNumber}\tStatus:{parcel.Status}\tLastModificationDate:{parcel.LastModificationDate}";
+            parcels.Add(parcel);
             InvokeAsync(StateHasChanged);
         });
 
         await hubConnection.StartAsync();
     }
-
-    private async Task Send()
-	{
-	    if (hubConnection is not null)
-            {
-                await hubConnection.SendAsync("SendMessage", userInput, messageInput);
-            }
-	}
 
     public bool IsConnected =>
         hubConnection?.State == HubConnectionState.Connected;
@@ -68,4 +60,5 @@
             await hubConnection.DisposeAsync();
         }
     }
+
 }

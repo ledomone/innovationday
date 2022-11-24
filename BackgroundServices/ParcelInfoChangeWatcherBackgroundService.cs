@@ -19,10 +19,13 @@ public class ParcelInfoChangeWatcherBackgroundService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var cursor = await _collection.WatchAsync(cancellationToken: stoppingToken);
-        foreach (var change in cursor.ToEnumerable())
+        while (!stoppingToken.IsCancellationRequested)
         {
-            await _hub.Clients.All.SendAsync("ParcelInfoUpdatedMessage", change.FullDocument, cancellationToken: stoppingToken);
+            using var cursor = await _collection.WatchAsync(cancellationToken: stoppingToken);
+            foreach (var change in cursor.ToEnumerable())
+            {
+                await _hub.Clients.All.SendAsync("ParcelInfoUpdatedMessage", change.FullDocument, cancellationToken: stoppingToken);
+            }
         }
     }
 }
