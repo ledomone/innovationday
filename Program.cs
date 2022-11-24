@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using BlazorServerSignalRApp.BackgroundServices;
 using BlazorServerSignalRApp.Data;
-using BlazorServerSignalRApp.Server.Hubs;
+using BlazorServerSignalRApp.Extensions;
+using BlazorServerSignalRApp.Hubs;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +15,9 @@ builder.Services.AddResponseCompression(opts =>
 	opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
 		new[] { "application/octet-stream" });
 });
+builder.Services.AddSignalR();
+builder.Services.AddMongoDatabase(builder.Configuration);
+builder.Services.AddHostedService<ParcelInfoChangeWatcherBackgroundService>();
 #endregion
 
 var app = builder.Build();
@@ -35,7 +38,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapBlazorHub();
-app.MapHub<ChatHub>("/chathub");
+app.MapHub<ParcelInfoHub>("/parcel-info-hub");
 app.MapFallbackToPage("/_Host");
 
 app.Run();
